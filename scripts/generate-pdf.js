@@ -190,7 +190,7 @@ async function generatePDF() {
   doc.font(F.bold.name).fontSize(7).fill(C.accent).text('EDUCATION', SP, sy); sy += 12;
   doc.font(F.bold.name).fontSize(9).fill(C.sidebarFg).text('배재대학교', SP, sy, { width: SW - SP * 2 }); sy += 13;
   doc.font(F.reg.name).fontSize(7).fill(C.muted).text('공과대학 소프트웨어공학과', SP, sy, { width: SW - SP * 2 }); sy += 11;
-  doc.font(F.reg.name).fontSize(7).fill(C.muted).text('2022.03 — 2026.08 졸업 예정', SP, sy, { width: SW - SP * 2 }); sy += 11;
+  doc.font(F.reg.name).fontSize(7).fill(C.muted).text('2023.03 — 2027.02 졸업 예정', SP, sy, { width: SW - SP * 2 }); sy += 11;
   doc.rect(SP, sy, 92, 15).fill('#124af033');
   doc.font(F.bold.name).fontSize(7.5).fill(C.accent).text('GPA  3.82 / 4.5', SP + 8, sy + 4, { lineBreak: false });
   sy += 22; sideLine();
