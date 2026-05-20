@@ -238,7 +238,7 @@ async function generatePDF() {
   my = doc.y + 4;
   doc.font(F.reg.name).fontSize(7.5).fill(C.bodyMuted)
     .text(
-      '인공지능과 백엔드 개발에 관심을 가지고 있으며, 다양한 개인/팀 프로젝트를 통해 실전 역량과 협업 경험을 쌓아왔습니다. 백엔드 구축과 API 연결 경험을 통해 구조에 대한 이해와 문제 해결력을 키웠습니다.',
+      '견문이 점점 넓어지는 개발자 지망생 손광호입니다.\n인공지능과 백엔드 개발에 관심을 가지고 있으며, 다양한 개인/팀 프로젝트를 통해 실전 역량과 협업 경험을 쌓아왔습니다.\n특히 백엔드 구축과 API 연결 및 수정 경험을 통해 백엔드 구조의 이해와 문제 해결력을 키웠습니다.',
       MX, my, { width: MW }
     );
   my = doc.y + 10;
@@ -309,16 +309,16 @@ async function generatePDF() {
     MX, HW, C.primary,
     '음성파일 요약 API 연동 사이트', 'Team PSLW',
     '2026년 3월 – 현재',
-    'AutoGPT API, Gemini API를 활용해 회의 음성 파일을 요약하는 사이트. 사용자 자신의 API 키를 직접 활용하는 유연한 설계 방식 적용.',
-    ['AutoGPT API', 'Gemini API', 'Audio Summary']
+    'AutoGPT API, Gemini API를 사용해 회의 음성 파일을 요약하는 사이트입니다. 다른 고정된 API를 사용하는 것이 아닌, 사용자가 각자 소유한 API 키를 직접 사용할 수 있는 유연한 설계 방식을 적용해 개발하고 있습니다.',
+    ['AutoGPT API', 'Gemini API', 'Audio Summary', 'API Integration']
   );
 
   const newMyAfterProj2 = projCard(
     MX + HW + 10, HW, C.accent,
     '욕설 필터링 AI 프로젝트', 'Team PSLW',
     '2025년 3월 – 2025년 12월',
-    '텍스트 내 욕설을 자동 감지·차단하는 AI 모델 연구·개발 및 웹 테스트 사이트 구축. 머신러닝/AI를 적용한 첫 협업 프로젝트.',
-    ['AI', 'NLP', '욕설 필터링', 'ML']
+    '텍스트 내의 욕설을 자동으로 감지하고 차단하는 AI 모델을 연구·개발하고, 해당 AI 솔루션이 실제로 적용된 웹 테스트 사이트를 구축했습니다. 머신러닝/AI를 적용해 성공적으로 완료한 첫 협업 프로젝트입니다.',
+    ['AI', 'NLP', '욕설 필터링', 'Model Development', 'Test Bed Site']
   );
 
   my = Math.max(newMyAfterProj1, newMyAfterProj2) + 10;
