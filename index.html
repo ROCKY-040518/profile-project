@@ -12,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
     rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
 
   <script id="tailwind-config">
     tailwind.config = {
@@ -19,53 +20,53 @@
       theme: {
         extend: {
           colors: {
-            "surface-container": "#eaedff",
-            "surface-container-highest": "#dae2fd",
-            "secondary-container": "#d0e1fb",
-            "on-tertiary-container": "#009668",
-            "inverse-surface": "#283044",
-            "surface-container-lowest": "#ffffff",
-            "surface-dim": "#d2d9f4",
-            "on-primary": "#ffffff",
+            "surface-container": "var(--surface-container)",
+            "surface-container-highest": "var(--surface-container-highest)",
+            "secondary-container": "var(--surface-container-high)",
+            "on-tertiary-container": "var(--tertiary)",
+            "inverse-surface": "var(--surface-variant)",
+            "surface-container-lowest": "var(--surface-container-lowest)",
+            "surface-dim": "var(--surface-container-low)",
+            "on-primary": "var(--on-primary)",
             "on-error": "#ffffff",
-            "tertiary-fixed-dim": "#4edea3",
+            "tertiary-fixed-dim": "var(--tertiary-fixed-dim)",
             "error": "#ba1a1a",
-            "on-secondary-fixed": "#0b1c30",
-            "background": "#faf8ff",
-            "outline-variant": "#c6c6cd",
-            "primary": "#000000",
-            "inverse-on-surface": "#eef0ff",
-            "on-surface-variant": "#45464d",
-            "surface": "#faf8ff",
-            "on-tertiary": "#ffffff",
-            "on-primary-container": "#5979ff",
-            "secondary": "#505f76",
-            "tertiary-container": "#002113",
+            "on-secondary-fixed": "var(--on-surface)",
+            "background": "var(--surface)",
+            "outline-variant": "var(--outline-variant)",
+            "primary": "var(--primary)",
+            "inverse-on-surface": "var(--surface-bright)",
+            "on-surface-variant": "var(--on-surface-variant)",
+            "surface": "var(--surface)",
+            "on-tertiary": "var(--on-primary)",
+            "on-primary-container": "var(--primary)",
+            "secondary": "var(--on-surface-variant)",
+            "tertiary-container": "var(--primary-container)",
             "on-error-container": "#93000a",
             "error-container": "#ffdad6",
-            "primary-fixed": "#dde1ff",
-            "primary-container": "#001356",
-            "surface-container-high": "#e2e7ff",
-            "on-primary-fixed-variant": "#0035be",
-            "secondary-fixed-dim": "#b7c8e1",
-            "on-secondary-fixed-variant": "#38485d",
-            "surface-tint": "#124af0",
-            "tertiary": "#000000",
-            "on-secondary": "#ffffff",
-            "outline": "#76777d",
-            "surface-bright": "#faf8ff",
-            "primary-fixed-dim": "#b8c3ff",
-            "on-secondary-container": "#54647a",
-            "secondary-fixed": "#d3e4fe",
-            "inverse-primary": "#b8c3ff",
-            "surface-variant": "#dae2fd",
-            "tertiary-fixed": "#6ffbbe",
-            "on-primary-fixed": "#001356",
-            "surface-container-low": "#f2f3ff",
-            "on-background": "#131b2e",
-            "on-tertiary-fixed-variant": "#005236",
-            "on-surface": "#131b2e",
-            "on-tertiary-fixed": "#002113"
+            "primary-fixed": "var(--surface-container-highest)",
+            "primary-container": "var(--primary-container)",
+            "surface-container-high": "var(--surface-container-high)",
+            "on-primary-fixed-variant": "var(--primary)",
+            "secondary-fixed-dim": "var(--surface-container-highest)",
+            "on-secondary-fixed-variant": "var(--on-surface-variant)",
+            "surface-tint": "var(--primary)",
+            "tertiary": "var(--tertiary)",
+            "on-secondary": "var(--on-primary)",
+            "outline": "var(--outline-variant)",
+            "surface-bright": "var(--surface-bright)",
+            "primary-fixed-dim": "var(--surface-container-highest)",
+            "on-secondary-container": "var(--on-surface-variant)",
+            "secondary-fixed": "var(--surface-container-highest)",
+            "inverse-primary": "var(--primary)",
+            "surface-variant": "var(--surface-variant)",
+            "tertiary-fixed": "var(--tertiary-fixed-dim)",
+            "on-primary-fixed": "var(--primary-container)",
+            "surface-container-low": "var(--surface-container-low)",
+            "on-background": "var(--on-surface)",
+            "on-tertiary-fixed-variant": "var(--tertiary)",
+            "on-surface": "var(--on-surface)",
+            "on-tertiary-fixed": "var(--tertiary)"
           },
           borderRadius: {
             DEFAULT: "0.125rem",
@@ -102,27 +103,59 @@
     header,
     aside,
     main,
-    .sidebar-card {
-      transition: background-color 0.4s, color 0.4s;
+    .sidebar-card,
+    .hero-card,
+    .exp-card,
+    .project-card {
+      transition: background-color 0.4s, color 0.4s, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), outline 0.3s ease;
     }
 
     /* ── Dark mode overrides ── */
     .dark body {
-      background-color: #0f1626;
-      color: #e2e8f8;
+      background-color: var(--surface);
+      color: var(--on-surface);
     }
 
     .dark .sidebar-card {
-      background-color: #1a233a;
+      background-color: var(--surface-container-low);
     }
 
     .dark .hero-card,
     .dark .exp-card {
-      background-color: #1a233a;
+      background-color: var(--surface-container-low);
     }
 
     .dark .project-card {
-      background-color: #1e2a42;
+      background-color: var(--surface-container);
+    }
+
+    /* ── Card & Button Premium Hover Effects ── */
+    .project-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 16px 40px rgba(18, 74, 240, 0.1);
+      outline: 1.5px solid var(--primary);
+    }
+
+    .dark .project-card:hover {
+      box-shadow: 0 16px 40px rgba(89, 121, 255, 0.18);
+    }
+
+    .exp-card:hover {
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 12px 28px rgba(18, 74, 240, 0.08);
+      outline: 1.5px solid var(--primary);
+    }
+
+    .dark .exp-card:hover {
+      box-shadow: 0 12px 28px rgba(89, 121, 255, 0.12);
+    }
+
+    .sidebar-card:hover {
+      box-shadow: 0 16px 48px rgba(18, 74, 240, 0.06);
+    }
+
+    .dark .sidebar-card:hover {
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
     }
 
     /* ── Top nav active / inactive ── */

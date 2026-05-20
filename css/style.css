@@ -42,10 +42,10 @@
   /* --- Content Colors --- */
   --on-surface:                #131b2e;   /* 메인 텍스트: 100% 블랙 금지 */
   --on-surface-variant:        #44475a;   /* 보조 텍스트 */
-  --on-surface-muted:          #9497a8;   /* 날짜·힌트 텍스트 */
+  --on-surface-muted:          #64748b;   /* 날짜·힌트 텍스트 */
 
   /* --- Primary Brand --- */
-  --primary:                   #124af0;
+  --primary:                   #124af0;   /* Vibrant blue in light mode */
   --primary-container:         #001356;
   --on-primary:                #ffffff;
 
@@ -73,8 +73,36 @@
   --radius-2xl: 20px;
 
   /* --- Shadows (Ambient — soft, natural) --- */
-  --shadow-ambient: 0 10px 30px rgba(19, 27, 46, 0.06);
-  --shadow-hover:   0 16px 48px rgba(19, 27, 46, 0.11);
+  --shadow-ambient: 0 10px 30px rgba(18, 74, 240, 0.05);
+  --shadow-hover:   0 16px 48px rgba(18, 74, 240, 0.08);
+}
+
+/* --- Dark Mode Override Variables --- */
+.dark {
+  --surface:                   #0f1626;
+  --surface-bright:            #172036;
+  --surface-container-lowest:  #0a0f1d;
+  --surface-container-low:     #121b2d;
+  --surface-container:         #1a233a;
+  --surface-container-high:    #222c48;
+  --surface-container-highest: #2a3556;
+  --surface-variant:           #242f4c;
+
+  --on-surface:                #faf8ff;
+  --on-surface-variant:        #94a3b8;
+  --on-surface-muted:          #64748b;
+
+  --primary:                   #5979ff;   /* Vibrant blue in dark mode */
+  --primary-container:         #124af0;
+  --on-primary:                #ffffff;
+
+  --tertiary:                  #4edea3;
+  --tertiary-fixed-dim:        #4edea3;
+
+  --outline-variant:           #384563;
+
+  --shadow-ambient: 0 10px 30px rgba(0, 0, 0, 0.3);
+  --shadow-hover:   0 16px 48px rgba(89, 121, 255, 0.15);
 }
 
 
@@ -215,7 +243,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-family:     var(--font-body);
   font-size:       0.9375rem;
   font-weight:     600;
-  transition:      transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  transition:      all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   white-space:     nowrap;
 }
 
@@ -225,8 +253,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .btn-primary:hover {
-  transform:   translateY(-2px);
-  box-shadow:  0 8px 24px rgba(18, 74, 240, 0.28);
+  transform:   translateY(-4px) scale(1.02);
+  box-shadow:  0 12px 28px rgba(18, 74, 240, 0.35);
+}
+
+.dark .btn-primary:hover {
+  box-shadow:  0 12px 28px rgba(89, 121, 255, 0.4);
 }
 
 .btn-secondary {
@@ -239,7 +271,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 .btn-secondary:hover {
   background:  rgba(225, 226, 240, 0.70);
-  transform:   translateY(-2px);
+  transform:   translateY(-4px) scale(1.02);
+  box-shadow:  0 10px 24px rgba(198, 198, 205, 0.25);
+}
+
+.dark .btn-secondary:hover {
+  background:  rgba(30, 41, 59, 0.80);
+  box-shadow:  0 10px 24px rgba(0, 0, 0, 0.4);
 }
 
 .btn-full { width: 100%; }
@@ -708,14 +746,16 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border-radius: var(--radius-xl);
   padding:       2rem;
   outline:       1px solid rgba(198, 198, 205, 0.08);
-  transition:    background 0.28s ease, box-shadow 0.28s ease, transform 0.28s ease;
+  transition:    all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor:        default;
+  outline:       1px solid rgba(198, 198, 205, 0.1);
 }
 
 .project-card:hover {
   background:  var(--surface-bright);
   box-shadow:  var(--shadow-hover);
-  transform:   translateY(-5px);
+  transform:   translateY(-8px) scale(1.02);
+  outline:     1.5px solid var(--primary);
 }
 
 .project-meta {
