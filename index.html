@@ -274,7 +274,7 @@
           <span class="material-symbols-outlined" id="theme-icon">light_mode</span>
         </button>
         <!-- ✏️ EDIT: CV 링크 연결 -->
-        <a href="#"
+        <a href="#" id="download-cv"
           class="hidden sm:flex font-headline tracking-tight font-extrabold uppercase text-on-primary px-5 py-2.5 rounded-xl bg-primary-container hover:opacity-90 transition-opacity text-sm">
           Download CV
         </a>
@@ -759,6 +759,23 @@
 
     // 초기 활성화
     setActive('profile');
+
+    /* ── CV Download Confirmation ── */
+    const downloadCvBtn = document.getElementById('download-cv');
+    if (downloadCvBtn) {
+      downloadCvBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const confirmDownload = confirm("이력서 PDF 파일을 다운로드하시겠습니까?");
+        if (confirmDownload) {
+          const link = document.createElement('a');
+          link.href = 'resume.pdf';
+          link.download = '손광호_이력서.pdf';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        }
+      });
+    }
   </script>
 
   <!-- Shared utility class styles via Tailwind @apply workaround -->
