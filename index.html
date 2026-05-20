@@ -768,7 +768,12 @@
         const confirmDownload = confirm("이력서 PDF 파일을 다운로드하시겠습니까?");
         if (confirmDownload) {
           const link = document.createElement('a');
-          link.href = 'resume.pdf';
+          // Live Server(5500 포트), 로컬 파일 더블클릭(file://), 그리고 Vite 환경을 모두 지원하기 위한 경로 분기 처리
+          if (window.location.port === '5500' || window.location.protocol === 'file:') {
+            link.href = 'public/resume.pdf';
+          } else {
+            link.href = 'resume.pdf';
+          }
           link.download = '손광호_이력서.pdf';
           document.body.appendChild(link);
           link.click();
